@@ -39,7 +39,7 @@ public class Item {
                 && !name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
             if (quality > 0) {
                 if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                     quality++;
+                     quality--;
                 }
             }
         } else {
