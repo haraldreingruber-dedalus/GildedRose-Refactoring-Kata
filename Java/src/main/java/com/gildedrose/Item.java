@@ -34,31 +34,16 @@ public class Item {
      */
 
    public void updateItemQuality() {
+
         if (!name.equals(AGED_BRIE)
                 && !name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
             if (quality > 0) {
                 if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                    quality++;
+                     quality++;
                 }
             }
         } else {
-            if (quality < LOW_QUALITY_GATE) {
-                quality++;
-
-                if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                    if (sellIn < 11) {
-                        if (quality < LOW_QUALITY_GATE) {
-                            quality++;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < LOW_QUALITY_GATE) {
-                            quality++;
-                        }
-                    }
-                }
-            }
+            updateAgedBrie();
         }
 
         if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
@@ -76,9 +61,29 @@ public class Item {
                 } else {
                     quality = 0;
                 }
-            } else {
+            } else { // if aged brie
                 if (quality < LOW_QUALITY_GATE) {
                     quality++;
+                }
+            }
+        }
+    }
+
+    private void updateAgedBrie() {
+        if (quality < LOW_QUALITY_GATE) {
+            quality++;
+
+            if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+                if (sellIn < 11) {
+                    if (quality < LOW_QUALITY_GATE) {
+                        quality++;
+                    }
+                }
+
+                if (sellIn < 6) {
+                    if (quality < LOW_QUALITY_GATE) {
+                        quality++;
+                    }
                 }
             }
         }
