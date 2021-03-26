@@ -11,7 +11,7 @@ class GildedRose {
      - Extract magic constants (get rid of duplicated strings) (partially done)
      - Utility method for increasing quality
      - Simplify if statements
-     - move update method to Item class
+     - move update method to Item class (done)
      - for-each instead of for
      - resource class with string resources
      */
@@ -21,8 +21,8 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            items[i].updateItemQuality();
+        for (Item item: items) {
+            item.updateItemQuality();
         }
     }
 
