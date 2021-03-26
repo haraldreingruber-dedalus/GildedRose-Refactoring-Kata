@@ -35,14 +35,14 @@ public class Item {
 
    public void updateItemQuality() {
 
-        if (!name.equals(AGED_BRIE) && !name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+        if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+            updateAgedBrieOrBackstagePasses();
+        } else {
             if (quality > 0) {
                 if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                     quality--;
+                    quality--;
                 }
             }
-        } else {
-            updateAgedBrieOrBackstagePasses();
         }
 
         if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
