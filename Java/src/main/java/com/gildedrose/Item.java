@@ -73,10 +73,8 @@ public class Item {
                     quality++;
                 }
 
-                if (sellIn < 6) {
-                    if (quality < LOW_QUALITY_GATE) {
-                        quality++;
-                    }
+                if (sellIn < 6 && quality < LOW_QUALITY_GATE) {
+                    quality++;
                 }
             }
         }
