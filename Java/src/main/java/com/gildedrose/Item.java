@@ -38,10 +38,8 @@ public class Item {
         if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
             updateAgedBrieOrBackstagePasses();
         } else {
-            if (quality > 0) {
-                if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                    quality--;
-                }
+            if ((quality > 0) && (!name.equals(SULFURAS_HAND_OF_RAGNAROS))) {
+                quality--;
             }
         }
 
@@ -52,10 +50,8 @@ public class Item {
         if (sellIn < 0) {
             if (!name.equals(AGED_BRIE)) {
                 if (!name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                    if (quality > 0) {
-                        if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                            quality--;
-                        }
+                    if ((quality > 0) && (!name.equals(SULFURAS_HAND_OF_RAGNAROS))) {
+                        quality--;
                     }
                 } else {
                     quality = 0;
@@ -73,10 +69,8 @@ public class Item {
             quality++;
 
             if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                if (sellIn < 11) {
-                    if (quality < LOW_QUALITY_GATE) {
-                        quality++;
-                    }
+                if (sellIn < 11 && quality < LOW_QUALITY_GATE) {
+                    quality++;
                 }
 
                 if (sellIn < 6) {
