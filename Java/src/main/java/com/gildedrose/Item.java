@@ -37,10 +37,8 @@ public class Item {
 
         if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
             updateAgedBrieOrBackstagePasses();
-        } else {
-            if ((quality > 0) && (!name.equals(SULFURAS_HAND_OF_RAGNAROS))) {
-                quality--;
-            }
+        } else if ((quality > 0) && (!name.equals(SULFURAS_HAND_OF_RAGNAROS))) {
+            quality--;
         }
 
         if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
