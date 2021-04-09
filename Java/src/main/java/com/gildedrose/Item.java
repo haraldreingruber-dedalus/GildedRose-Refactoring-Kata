@@ -66,12 +66,12 @@ public class Item {
         if (quality < LOW_QUALITY_GATE) {
             quality++;
 
-            if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                if (sellIn < 11 && quality < LOW_QUALITY_GATE) {
+            if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT) && quality < LOW_QUALITY_GATE) {
+                if (sellIn < 11 )  {
                     quality++;
                 }
 
-                if (sellIn < 6 && quality < LOW_QUALITY_GATE) {
+                if (sellIn < 6) {
                     quality++;
                 }
             }
