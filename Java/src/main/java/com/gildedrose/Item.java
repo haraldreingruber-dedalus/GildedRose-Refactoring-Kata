@@ -19,8 +19,8 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
@@ -33,7 +33,7 @@ public class Item {
      - resource class with string resources
      */
 
-   public void updateItemQuality() {
+    public void updateItemQuality() {
 
         if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
             updateAgedBrieOrBackstagePasses();
@@ -60,31 +60,22 @@ public class Item {
         }
     }
 
-    private void incrementIfUnderQualityGate() {
-       if (quality < LOW_QUALITY_GATE)  {
-           quality++;
-       }
+    private boolean incrementIfUnderQualityGate() {
+        if (quality < LOW_QUALITY_GATE) {
+            quality++;
+            return true;
+        }
+        return false;
     }
 
     private void updateAgedBrieOrBackstagePasses() {
-        if (quality < LOW_QUALITY_GATE) {
-            quality++;
+        if (incrementIfUnderQualityGate() && name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+            if (sellIn < 11) {
+                incrementIfUnderQualityGate();
+            }
 
-            /*
-            - x revert modifications
-            - create method for checking quality gate together with the increase
-            - debug
-            - convert if to if - elseif
-            - increase the quality only once
-             */
-            if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                if (sellIn < 11)  {
-                    incrementIfUnderQualityGate();
-                }
-
-                if (sellIn < 6) {
-                    incrementIfUnderQualityGate();
-                }
+            if (sellIn < 6) {
+                incrementIfUnderQualityGate();
             }
         }
     }
