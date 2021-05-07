@@ -45,6 +45,9 @@ public class Item {
             sellIn--;
         } else if (name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
             // TODO
+            if (sellIn < 0) {
+                quality = 0;
+            }
         } else {
             if (quality > 0) {
                 quality--;
@@ -53,6 +56,9 @@ public class Item {
 
             if (sellIn < 0 && quality > 0) {
                 quality--;
+            }
+            if (sellIn < 0) {
+                quality = 0;
             }
             // TODO: handle default item
         }
