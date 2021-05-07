@@ -55,9 +55,7 @@ public class Item {
                     quality = 0;
                 }
             } else { // if aged brie
-                if (quality < LOW_QUALITY_GATE) {
-                    quality++;
-                }
+                incrementIfUnderQualityGate();
             }
         }
     }
