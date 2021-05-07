@@ -35,21 +35,35 @@ public class Item {
 
     public void updateItemQuality() {
 
-        if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+        if( name.equals(AGED_BRIE)) {
+            // TODO
             updateAgedBrieOrBackstagePasses();
-        } else if ((quality > 0) && (!name.equals(SULFURAS_HAND_OF_RAGNAROS))) {
-            quality--;
+            sellIn--;
+        } else if ( name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+            // TODO
+            updateAgedBrieOrBackstagePasses();
+            sellIn--;
+        } else if (name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+            // TODO
+        } else {
+            if (quality > 0) {
+                quality--;
+            }
+            sellIn--;
+
+            if (sellIn < 0 && quality > 0) {
+                quality--;
+            }
+            // TODO: handle default item
         }
 
-        if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-            sellIn--;
-        }
+
 
         if (sellIn < 0) {
             if (!name.equals(AGED_BRIE)) {
                 if (!name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
                     if ((quality > 0) && (!name.equals(SULFURAS_HAND_OF_RAGNAROS))) {
-                        quality--;
+
                     }
                 } else {
                     quality = 0;
