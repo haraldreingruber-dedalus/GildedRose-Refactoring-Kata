@@ -62,17 +62,30 @@ public class Item {
         }
     }
 
+    private void incrementIfUnderQualityGate() {
+       if (quality < LOW_QUALITY_GATE)  {
+           quality++;
+       }
+    }
+
     private void updateAgedBrieOrBackstagePasses() {
         if (quality < LOW_QUALITY_GATE) {
             quality++;
 
-            if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT) && quality < LOW_QUALITY_GATE) {
-                if (sellIn < 11 )  {
-                    quality++;
+            /*
+            - x revert modifications
+            - create method for checking quality gate together with the increase
+            - debug
+            - convert if to if - elseif
+            - increase the quality only once
+             */
+            if (name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+                if (sellIn < 11)  {
+                    incrementIfUnderQualityGate();
                 }
 
                 if (sellIn < 6) {
-                    quality++;
+                    incrementIfUnderQualityGate();
                 }
             }
         }
